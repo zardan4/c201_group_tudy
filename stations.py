@@ -10,6 +10,9 @@ class Station:
     def take_bike(self, bike_id, user):
         bike = [b for b in self.bikes if b["id"] == bike_id]
 
+        if not user.Session:
+            return False
+
         if not bike:
             return False
 
@@ -24,7 +27,9 @@ class Station:
         # remove bike from the list
         self.bikes = [b for b in self.bikes if b.id != bike_id]
 
-        return sessions.Session(bike, user, datetime.datetime.now())
+        user.session = sessions.Session(bike, user, datetime.datetime.now())
+
+        return True
 
     def return_bike(self, user, station):
         if not user.session:

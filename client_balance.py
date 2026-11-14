@@ -1,9 +1,8 @@
 class Client:
-    session = None
-
     def __init__(self, name: str, balance: float):
         self.name = name
         self.balance = float(balance)
+        self.sessions = None
 
     def minus_money(self, amount: float):
         if self.balance >= amount:
