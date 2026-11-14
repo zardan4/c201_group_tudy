@@ -1,6 +1,8 @@
 import datetime
 
 import sessions
+from bike import Bike
+
 
 class Station:
     def __init__(self, bikes):
@@ -31,7 +33,7 @@ class Station:
 
         return True
 
-    def return_bike(self, user, station):
+    def return_bike(self, user):
         if not user.session:
             return False
 
@@ -41,7 +43,11 @@ class Station:
         if not user.minus_money(cost):
             return False
 
-        station.bikes.append(bike)
+        bike.return_bike() # update bike class
+
+        # update station
+        self.bikes.append(bike)
+        self.balance += cost
 
         user.session = None
 
