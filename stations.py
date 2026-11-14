@@ -5,7 +5,8 @@ from bike import Bike
 
 
 class Station:
-    def __init__(self, bikes):
+    def __init__(self, bikes, id):
+        self.id = id
         self.bikes = bikes
         self.balance = 0
 
