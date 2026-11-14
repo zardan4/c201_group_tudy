@@ -10,9 +10,9 @@ class Station:
         self.balance = 0
 
     def take_bike(self, bike_id, user):
-        bike = [b for b in self.bikes if b["id"] == bike_id]
+        bike = [b for b in self.bikes if b.id == bike_id]
 
-        if not user.Session:
+        if user.session:
             return False
 
         if not bike:

@@ -18,10 +18,7 @@ class ElectricBike(Bike):
         return self.charge >= 20
 
     def return_bike(self, time):
-        if self.charge < time:
-            self.charge = 0
-
-        self.charge -= time
+        self.charge = max(0, self.charge - time)
 
 class RegularBike(Bike):
     def __init__(self, id):

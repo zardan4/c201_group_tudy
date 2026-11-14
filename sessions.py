@@ -10,10 +10,10 @@ class Session:
     def time_passed(self):
         now = datetime.now()
         diff = now - self.time_start
-        return diff
+        return diff.total_seconds() / 60
 
-    def cost(self, bike):
-        duration = self.time_passed().minute
+    def cost(self):
+        duration = self.time_passed()
         cost = self.bike.price * duration
         return cost
 
