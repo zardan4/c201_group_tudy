@@ -39,6 +39,14 @@ it = 1
 for s in Bikenet.stations:
     print(f"На станції {it}: {len(s.bikes)} велосипедів")
     it += 1
-print(Bikenet.get_balance())
 
+for s in Bikenet.stations:
+    for b in s.bikes:
+        if b.charge and b.charge < 20:
+            print(f"Велосипед {b.id} намає низький рівень заряду ({b.charge}%)")
+
+print(f"Мережа заробила: {Bikenet.get_balance()}")
+
+print("Тесткейс зарядки")
+bike4 = bike.RegularBike(4)
 
