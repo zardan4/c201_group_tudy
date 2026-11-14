@@ -3,8 +3,8 @@ import datetime
 import sessions
 
 class Station:
-    def __init__(self):
-        self.bikes = []
+    def __init__(self, bikes):
+        self.bikes = bikes
         self.balance = 0
 
     def take_bike(self, bike_id, user):
@@ -46,6 +46,7 @@ class Station:
         user.session = None
 
         return True
+
 
 class Network:
     def __init__(self, stations):
