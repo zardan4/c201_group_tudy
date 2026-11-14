@@ -7,11 +7,11 @@ class Session:
         self.user = user
         self.time_start = time_start
 
-    def cost(self, bike):
+    def cost(self):
         now = datetime.now()
         diff = now - self.time_start
         duration = diff.minute
-        return bike.cost(duration)
+        return self.bike.cost(duration)
 
 
 
