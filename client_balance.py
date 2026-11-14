@@ -22,7 +22,7 @@ class Client:
         return False
 
     def get_balance(self):
-        return self.balance
+        return round(self.balance, 2)
 
 
 User = Client
