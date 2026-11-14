@@ -29,6 +29,8 @@ assert Station1.take_bike(2, Olga), "bike couldn't be taken"
 Olga.session.time_start = datetime.datetime.now() - timedelta(minutes=5)
 Station1.return_bike(Olga)
 
+assert not Station2.take_bike(5, Olga), "bike isn't supposed to be taken when it's not on the station"
+assert not Station1.take_bike(5, Olga), "electric bike isn't supposed to be taken when it is low on charge"
 
 
 Station1.return_bike(Olga)
