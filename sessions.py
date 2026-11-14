@@ -11,7 +11,8 @@ class Session:
         now = datetime.now()
         diff = now - self.time_start
         duration = diff.minute
-        return bike.cost(duration)
+        cost = self.bike.price * duration
+        return cost
 
 
 
