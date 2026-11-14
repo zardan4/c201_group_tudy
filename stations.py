@@ -60,4 +60,4 @@ class Network:
         self.stations = stations # list
 
     def get_balance(self):
-        return sum([s.balance for s in self.stations])
+        return round(sum([s.balance for s in self.stations]),2)
