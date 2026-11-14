@@ -6,10 +6,10 @@ bike1 = bike.ElectricBike(1, 78)
 bike2 = bike.ElectricBike(2, 98)
 bike3 = bike.RegularBike(3)
 bike4 = bike.RegularBike(4)
-bike5 = bike.ElectricBike(5, 45)
+bike5 = bike.ElectricBike(5, 25)
 
-Station1 = stations.Station([bike1, bike2])
-Station2 = stations.Station([bike3, bike4, bike5])
+Station1 = stations.Station([bike1, bike2], 1)
+Station2 = stations.Station([bike3, bike4, bike5], 2)
 Bikenet = stations.Network([Station1, Station2])
 
 Olga = client_balance.Client("Olga", 100)
@@ -42,8 +42,8 @@ for s in Bikenet.stations:
 
 for s in Bikenet.stations:
     for b in s.bikes:
-        if b.charge and b.charge < 20:
-            print(f"Велосипед {b.id} намає низький рівень заряду ({b.charge}%)")
+        if hasattr(b, 'charge') and b.charge < 20:
+            print(f"Велосипед {b.id} на станції {s.id} має низький рівень заряду ({b.charge:.2f}%)")
 
 print(f"Мережа заробила: {Bikenet.get_balance()}")
 
