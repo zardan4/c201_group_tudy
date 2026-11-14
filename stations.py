@@ -43,7 +43,8 @@ class Station:
         if not user.minus_money(cost):
             return False
 
-        bike.return_bike() # update bike class
+        time_passed = user.session.time_passed()
+        bike.return_bike(time_passed) # update bike class
 
         # update station
         self.bikes.append(bike)

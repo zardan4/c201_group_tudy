@@ -5,7 +5,7 @@ class Bike:
     def can_take(self):
         return True
 
-    def return_bike(self):
+    def return_bike(self, time):
         pass
 
 class ElectricBike(Bike):
