@@ -35,7 +35,10 @@ Station1.return_bike(Olga)
 Station2.return_bike(Daniil)
 print(f"Баланс {Olga.name}:{Olga.get_balance()}")
 print(f"Баланс {Daniil.name}:{Daniil.get_balance()}")
-
+it = 1
+for s in Bikenet.stations:
+    print(f"На станції {it}: {len(s.bikes)} велосипедів")
+    it += 1
 print(Bikenet.get_balance())
 
 
